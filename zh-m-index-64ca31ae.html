@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开云 · 资料索引与信息整理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fde9d8 0%, #f7d9c2 40%, #fce3cf 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.7;
+      color: #3d2e24;
+    }
+
+    .magazine {
+      max-width: 1024px;
+      width: 100%;
+      background: rgba(255, 245, 235, 0.75);
+      backdrop-filter: blur(4px);
+      border-radius: 48px 48px 32px 32px;
+      box-shadow: 0 20px 40px rgba(160, 100, 60, 0.18), 0 8px 16px rgba(100, 60, 30, 0.08);
+      padding: 2.4rem 2.8rem;
+      transition: all 0.2s ease;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 1.2rem 0.5rem 2.2rem 0.5rem;
+      border-bottom: 2px dashed #dbb79a;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 450;
+      letter-spacing: 0.06em;
+      color: #4a3020;
+      background: linear-gradient(135deg, #754e32, #9d6b48);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #6f5340;
+      opacity: 0.85;
+      border-top: 1px solid #dbb79a;
+      display: inline-block;
+      padding-top: 0.5rem;
+      margin-top: 0.2rem;
+      font-style: italic;
+    }
+
+    .card {
+      background: #fffcf8;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      border-radius: 28px;
+      box-shadow: 0 6px 14px rgba(140, 80, 40, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.25s;
+    }
+
+    .card:last-of-type {
+      margin-bottom: 2.2rem;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 460;
+      color: #5f3e2a;
+      margin-bottom: 1rem;
+      padding-left: 0.4rem;
+      border-left: 5px solid #c6946e;
+    }
+
+    .card p {
+      margin-bottom: 0.9rem;
+      text-align: justify;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .accent-link {
+      color: #885a3a;
+      background: #f1e1d4;
+      padding: 0.1rem 0.6rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 460;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .accent-link:hover {
+      background: #cfa882;
+      color: #2b1a10;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.6rem;
+    }
+
+    .feature-item {
+      background: #f6ede6;
+      padding: 0.8rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      color: #3a2a1e;
+      box-shadow: inset 0 1px 3px rgba(255,255,240,0.6), 0 2px 4px rgba(100,60,30,0.06);
+    }
+
+    .footnote {
+      text-align: center;
+      padding: 1.4rem 0 0.2rem 0;
+      border-top: 1px solid #ddc4b0;
+      font-size: 0.95rem;
+      color: #7a5f4b;
+    }
+
+    .footnote a {
+      color: #7f5a3e;
+      font-weight: 470;
+      background: #efe1d6;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .footnote a:hover {
+      background: #dbbcac;
+    }
+
+    .faq-mini {
+      background: #f6ede6;
+      border-radius: 24px;
+      padding: 1.2rem 1.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 470;
+      color: #583f2e;
+      cursor: pointer;
+      padding: 0.2rem 0;
+      list-style: '▸ ';
+    }
+
+    .faq-mini details[open] summary {
+      list-style: '▾ ';
+    }
+
+    .faq-mini .faq-answer {
+      padding: 0.5rem 0 0.2rem 1.2rem;
+      color: #4f3829;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .magazine {
+        padding: 1.6rem 1.2rem;
+        border-radius: 36px;
+      }
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+      .card {
+        padding: 1.4rem 1.2rem;
+      }
+      .feature-grid {
+        gap: 0.8rem;
+      }
+      .feature-item {
+        padding: 0.5rem 1rem;
+        font-size: 0.88rem;
+      }
+      .faq-mini {
+        padding: 1rem 1rem;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .card h2 {
+        font-size: 1.25rem;
+      }
+      .footnote {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="magazine">
+    <div class="hero">
+      <h1>开云 · 信息整理志</h1>
+      <div class="sub">资料索引 · 结构梳理 · 知识路径</div>
+    </div>
+
+    <div class="card">
+      <h2>从零散到有序</h2>
+      <p>在大量信息交织的网络环境中，<a href="https://zh-m-kai-yun.com" class="accent-link">开云</a> 所承载的不只是一个站点标识，更是一套温和的信息组织思路。就像整理档案时先划定年代、再细分子类，我们希望每个访问者都能在这套框架里找到自己需要的脉络。过去两年，我们陆续将数百个条目按主题、时间、重要程度重新编排，试图在庞杂与简洁之间取得平衡。</p>
+      <p>这种整理方式并非追求绝对完整，而是强调“可检索”与“可延伸”——让一条信息能够自然连接到另一条，让散落的碎片逐渐显出结构。这也是本页持续迭代的出发点。</p>
+    </div>
+
+    <div class="card">
+      <h2>分类与关联</h2>
+      <p>目前内容主要围绕几个方向：行业动态的长期跟踪、基础概念的释义与对比、以及跨领域的索引汇总。每一条记录都附有来源时间与标签，方便回溯或横向比对。例如在“年度梳理”板块中，我们以季度为节点整理趋势变化，并将相关术语、事件、人物单独建卡，形成可交互的参考网络。</p>
+      <div class="feature-grid">
+        <span class="feature-item">📂 主题卡片</span>
+        <span class="feature-item">🏷️ 多级标签</span>
+        <span class="feature-item">🔗 交叉引用</span>
+        <span class="feature-item">📅 时序归档</span>
+      </div>
+      <p style="margin-top: 1rem;">这种设计让查阅者既可以从宏观视角俯瞰，也能快速下钻至具体条目。对于需要频繁查阅资料的人来说，减少重复检索的时间就是提高效率的第一步。</p>
+    </div>
+
+    <div class="card">
+      <h2>场景与延伸</h2>
+      <p>在实际使用中，这种索引结构适合多种场景：研究者进行背景调查、编辑核对事实、爱好者梳理兴趣领域……甚至可以作为个人知识库的搭建参考。很多人反馈说，<a href="https://zh-m-kai-yun.com" class="accent-link">开云</a> 的整理方式启发了他们重新组织自己的书签、笔记或收藏夹。</p>
+      <p>当然，任何一种分类都无法覆盖全部可能性。我们更愿意把这份索引看作一个不断生长的“半成品”——它欢迎补充、修订和再组织。毕竟好的资料整理，从来不是终点，而是一条持续校准的路。</p>
+    </div>
+
+    <div class="faq-mini">
+      <details>
+        <summary>FAQ：索引多久更新一次？</summary>
+        <div class="faq-answer">目前保持每月至少一次集中梳理，重要事件或资料出现时会随时补充。每次更新都会在变更日志中列出。</div>
+      </details>
+      <details>
+        <summary>内容来源有哪些？</summary>
+        <div class="faq-answer">以公开资料、行业报告、学术出版物及可信媒体为主，每一条索引均标记原始出处或参考链接，方便用户自行核验。</div>
+      </details>
+      <details>
+        <summary>是否可以参与整理？</summary>
+        <div class="faq-answer">我们欢迎建设性的建议。你可以通过页面反馈渠道提交补充条目或修正意见，整理团队会定期评估并采纳合理的调整。</div>
+      </details>
+    </div>
+
+    <div class="footnote">
+      <p>资料整理是一种温和的秩序 — 欢迎访问 <a href="https://zh-m-kai-yun.com">开云</a> · 索引持续生长中</p>
+    </div>
+  </div>
+</body>
+</html>
