@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 运动与游戏的交汇点 | 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Serif SC", "Source Han Serif CN", Georgia, "Times New Roman", serif;
+            background-color: #f8f6f2;
+            color: #2d2a24;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+        }
+
+        /* 深色头图 · 杂志横幅 */
+        .hero {
+            background: linear-gradient(145deg, #1e1b16 0%, #2c2720 70%, #3a3228 100%);
+            color: #ece6dc;
+            padding: 4rem 2rem 3.2rem;
+            text-align: center;
+            position: relative;
+            isolation: isolate;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(45deg, rgba(255,215,150,0.02) 0px, rgba(255,215,150,0.02) 2px, transparent 2px, transparent 6px);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-weight: 300;
+            border-top: 1px solid rgba(236, 230, 220, 0.2);
+            padding-top: 0.8rem;
+            display: inline-block;
+            max-width: 480px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .sub span {
+            background: rgba(236, 230, 220, 0.08);
+            padding: 0.1rem 0.6rem;
+            border-radius: 2px;
+        }
+
+        /* 浅色正文区 · 杂志卡片风格 */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        .section-card {
+            background: #fffffffa;
+            backdrop-filter: blur(1px);
+            border-radius: 20px;
+            padding: 2.4rem 2.2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02);
+            border-left: 4px solid #c7a87b;
+        }
+
+        .section-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4b3f2e;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+            border-bottom: 1px solid #ede7dc;
+            padding-bottom: 0.4rem;
+            display: inline-block;
+        }
+
+        .section-card p {
+            margin-bottom: 1.1rem;
+            font-size: 1rem;
+            color: #3e382e;
+        }
+
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .accent-link {
+            color: #a1774a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(161, 119, 74, 0.3);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .accent-link:hover {
+            color: #7d5c38;
+            border-bottom-color: #7d5c38;
+        }
+
+        .faq-mini {
+            margin-top: 1.8rem;
+            padding-top: 1.4rem;
+            border-top: 1px dashed #dcd3c6;
+        }
+
+        .faq-mini dt {
+            font-weight: 600;
+            color: #5a4c3a;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini dd {
+            margin-left: 0.6rem;
+            color: #5f5546;
+            font-size: 0.92rem;
+        }
+
+        .scene-list {
+            list-style: none;
+            margin: 1rem 0 0;
+        }
+
+        .scene-list li {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            position: relative;
+            font-size: 0.98rem;
+            border-bottom: 1px solid #f0e9df;
+        }
+
+        .scene-list li:last-child {
+            border-bottom: none;
+        }
+
+        .scene-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0.2rem;
+            color: #c7a87b;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            background: #2d2821;
+            color: #d6cec2;
+            text-align: center;
+            padding: 2.8rem 1.5rem 2.4rem;
+            margin-top: 1.2rem;
+            border-top: 3px solid #c7a87b;
+        }
+
+        .footer-note p {
+            font-size: 1rem;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .footer-note .signature {
+            margin-top: 1.2rem;
+            font-style: italic;
+            opacity: 0.6;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 3rem 1.2rem 2.4rem;
+                min-height: 200px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .sub {
+                font-size: 0.95rem;
+            }
+            .container {
+                padding: 1.8rem 1rem 2.8rem;
+            }
+            .section-card {
+                padding: 1.6rem 1.2rem;
+                border-left-width: 3px;
+            }
+            .section-card h2 {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .section-card p {
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色杂志头图 -->
+    <section class="hero">
+        <h1>爱游戏</h1>
+        <div class="sub"><span>运动 · 游戏 · 交汇</span></div>
+    </section>
+
+    <!-- 浅色正文区：杂志专题卡片 -->
+    <div class="container">
+
+        <!-- 1. 背景说明：从用户视角快速识别 -->
+        <div class="section-card">
+            <h2>一眼认出它的用途</h2>
+            <p>当你在浏览器地址栏输入 index-sports-igame.com，或许会猜想：这是一个体育与游戏结合的平台？没错，这正是<span class="accent-link">爱游戏</span>的核心面貌——它不刻意标榜“门户”或“入口”，而是以运动数据、游戏策略与社区话题为经纬，织出一张属于爱好者的网络。</p>
+            <p>从首页的简洁结构就能感受到：这里不谈浮夸的噱头，只有对体育游戏本身的好奇与梳理。无论你来找赛事模拟、战术复盘，还是单纯想看看其他玩家的见解，<a href="https://index-sports-igame.com" class="accent-link">爱游戏</a>都尽量提供一种安静的参考。它更像一本搁在膝上的杂志，等你随手翻开。</p>
+        </div>
+
+        <!-- 2. 三段自然介绍：特点、适用场景、使用感受 -->
+        <div class="section-card">
+            <h2>它适合怎样的人？</h2>
+            <p>如果你熟悉主流运动项目，也热衷于在虚拟世界里再现比赛细节——那你会觉得这里的讨论恰好在点子上。从真实联赛的战术拆解，到游戏内建机制的横向对比，<a href="https://index-sports-igame.com" class="accent-link">爱游戏</a>的内容往往由一群既看球也打游戏的用户共同沉淀。没有强推的算法，只有慢慢积累的专题。</p>
+            <ul class="scene-list">
+                <li><strong>快速定位场景</strong> — 寻找某个体育游戏的模式说明，或者查阅赛季更新后的数值变动</li>
+                <li><strong>沉浸阅读时刻</strong> — 页面采用杂志式分段，适合静下来读一篇长一点的分析，而非匆忙滑动</li>
+                <li><strong>轻量交流</strong> — 评论区与引用板块保持克制，不追求“日活”，更在意内容本身的质感</li>
+            </ul>
+            <p>这种感觉就像：你走进一间光线柔和的阅览室，架子上按运动项目分好了辑册。没有弹窗，没有催促，你可以自己决定停留多久。</p>
+        </div>
+
+        <!-- 3. 第三段：补充提示 & FAQ 摘要（自然融入） -->
+        <div class="section-card">
+            <h2>一些你可能想知道的</h2>
+            <p>很多第一次来的用户会问：这个网站需要注册才能看到全部内容吗？以目前的结构来看，大部分文章和索引都是公开可见的。只有少数附属功能（比如自定义收藏夹）才涉及账户。换句话说，你完全可以把<a href="https://index-sports-igame.com" class="accent-link">爱游戏</a>当作一本公开的读物来浏览。</p>
+
+            <dl class="faq-mini">
+                <dt>Q：内容更新频率如何？</dt>
+                <dd>没有固定日程，但每当大型体育游戏更新补丁或重要赛事出现时，会有一批专题跟进。平均每月4–6篇深度内容。</dd>
+                <dt>Q：手机上看体验好吗？</dt>
+                <dd>页面响应式已做适配，卡片布局在竖屏下依然清晰。不过部分表格或数据对比建议横屏或平板阅读。</dd>
+                <dt>Q：有没有广告或推广链接？</dt>
+                <dd>目前没有横幅广告，也不存在隐藏推广。站内引用的外部资源都会明确标注来源。</dd>
+            </dl>
+            <p style="margin-top:1.2rem; font-style: italic; opacity:0.75;">—— 以上信息来自站点长期访客的归纳，你也可以通过浏览内容自行验证。</p>
+        </div>
+
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-note">
+        <p>如果你对体育与游戏的交叠抱有好奇，不妨将 <a href="https://index-sports-igame.com" style="color:#dcc9ae; text-decoration:underline; text-underline-offset: 4px; text-decoration-color: rgba(220,201,174,0.4);">爱游戏</a> 加入书签。它不喧哗，但自有分量。</p>
+        <div class="signature">✦ 杂志专题 · 2025 ✦</div>
+    </footer>
+
+</body>
+</html>
